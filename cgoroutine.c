@@ -157,5 +157,5 @@ void * cgoroutine_next(struct cgoroutine * cgo) {
 	if ( __sync_bool_compare_and_swap( &cgo->info.is_yield_set, true, false ) ) {
 		return cgo->info.yield_ret;
 	}
-	return 0;
+	return (void *)-1;
 }

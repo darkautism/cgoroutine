@@ -24,9 +24,18 @@ int cgoroutine_init(int max);
 struct cgoroutine * cgoroutine_create(void  ((*fn_thread)(struct cgoroutine_info*, void*)), void * argv);
 void cgoroutine_yield(struct cgoroutine_info* info, void * ret_val);
 void * cgoroutine_next(struct cgoroutine * cgo);
+
 /* define yield function */
 #ifndef yield
-#define yield cgoroutine_yield
+#define yield(x) cgoroutine_yield(__cgo__info, (void * ) x)
+#endif
+
+#ifndef async
+#define async(...) (struct cgoroutine_info* __cgo__info, __VA_ARGS__)
+#endif
+
+#ifndef go
+#define go cgoroutine_create
 #endif
 
 #ifndef next

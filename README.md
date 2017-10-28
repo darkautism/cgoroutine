@@ -29,4 +29,4 @@ In windows, you may need install cygwin or mingw.
  
 ## Examples
 
-- [yield](yield_and_next.c)
+- [yield](example/yield.c)
