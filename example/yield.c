@@ -34,7 +34,7 @@ int main() {
 	// Allocate 8 cgoroutine
 	for ( long long i = 0 ; i < 8 ; i++ ) {
 		// cgos[i] = go cgoroutine_create(myfunction, (void *)i);
-		cgos[i] = go( myfunction, (void *)i);
+		cgos[i] = cgo( myfunction, (void *)i);
 	}
 	
 	long long cgoroutine_id = 0;
